@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subscription Flow</title>
+
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+      --color-background-primary: #fff;
+      --color-background-secondary: #f5f5f5;
+
+      --color-text-primary: #111;
+      --color-text-secondary: #666;
+
+      --color-border-primary: #111;
+      --color-border-secondary: #ddd;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    .stepper { max-width: 1000px; margin: auto; }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      border: 1px solid var(--color-border-secondary);
+      background: var(--color-background-primary);
+      color: var(--color-text-secondary);
+      transition: 0.2s;
+    }
+
+    .pill.active {
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      border-color: var(--color-border-primary);
+    }
+
+    .pill:hover { background: var(--color-background-secondary); }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    svg {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    /* Node styles */
+    .node rect {
+      fill: white;
+      stroke: #ccc;
+    }
+
+    .th {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .ts {
+      font-size: 10px;
+      fill: #666;
+    }
+
+    .arr {
+      stroke: #999;
+      stroke-width: 1;
+      fill: none;
+    }
+
+    /* Color variants */
+    .c-blue rect { stroke: #378ADD; }
+    .c-purple rect { stroke: #7F77DD; }
+    .c-teal rect { stroke: #1D9E75; }
+    .c-amber rect { stroke: #BA7517; }
+    .c-coral rect { stroke: #D85A30; }
+    .c-gray rect { stroke: #888780; }
+
+  </style>
+</head>
+
+<body>
+
+<div class="stepper">
+
+  <div class="nav">
+    <div class="pill active" onclick="show(0)">1 — Setup</div>
+    <div class="pill" onclick="show(1)">2 — Plan creation</div>
+    <div class="pill" onclick="show(2)">3 — Purchase</div>
+    <div class="pill" onclick="show(3)">4 — Order processing</div>
+    <div class="pill" onclick="show(4)">5 — Merchant management</div>
+    <div class="pill" onclick="show(5)">6 — Customer portal</div>
+    <div class="pill" onclick="show(6)">DB — Tables</div>
+  </div>
+
+  <!-- 👇 KEEP YOUR EXISTING PANELS EXACTLY AS IS BELOW -->
+  
+  <!-- Paste ALL your SVG panels here (no change needed) -->
+  
+  <!-- Example (shortened) -->
+  <div class="panel active">
+    <svg viewBox="0 0 680 200">
+      <text x="50%" y="50%" text-anchor="middle">Your Panel Content</text>
+    </svg>
+  </div>
+
+</div>
+
+<script>
+function show(i){
+  document.querySelectorAll('.panel').forEach((p,j)=>{
+    p.classList.toggle('active', j === i)
+  });
+
+  document.querySelectorAll('.pill').forEach((p,j)=>{
+    p.classList.toggle('active', j === i)
+  });
+}
+</script>
+
+</body>
+</html>
